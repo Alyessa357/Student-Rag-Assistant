@@ -1,20 +1,20 @@
 """
 main.py
 
-Temporary test file used to verify that the handbook
-can be loaded correctly before building the RAG system.
+Temporary test script for creating the Chroma vector database.
 """
 
 # Import the function that loads the handbook
 from pdf_loader import load_handbook
 
 from text_splitter import split_documents
-from embeddings import get_embedding_model
+from vector_store import create_vector_store
 
 
 def main():
     """
-    Test the PDF loader.
+    Load the handbook, split it into chunks,
+    create embeddings, and store everything in ChromaDB.
     """
 
     # Load the handbook
@@ -22,26 +22,19 @@ def main():
 
     # Split into chunks
     chunks = split_documents(documents)
-
-    embedding_model = get_embedding_model()
+     
+    # Create vector database
+    vector_store = create_vector_store(chunks)
 
     print("=" * 60)
-    print("HANDBOOK SUCCESSFULLY LOADED")
+    print("VECTOR DATABASE CREATED SUCCESSFULLY")
     print("=" * 60)
 
-    print(f"Total pages loaded: {len(documents)}")
-    print(f"Total chunks created: {len(chunks)}")
+    print(f"Total handbook pages : {len(documents)}")
+    print(f"Total chunks stored  : {len(chunks)}")
 
-    print("\nFirst chunk metadata:")
-    print(chunks[0].metadata)
-
-    print("\nFirst chunk preview:\n")
-    print(chunks[0].page_content)
-
-    print("\nEmbedding model loaded successfully!")
-    print(type(embedding_model))
-
-    
+    print("\nVector Store Type:")
+    print(type(vector_store))
 
 if __name__ == "__main__":
     main()
