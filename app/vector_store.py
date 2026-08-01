@@ -32,7 +32,25 @@ def create_vector_store(chunks):
     vector_store = Chroma.from_documents(
         documents=chunks,
         embedding=embedding_model,
-        persist_directory="chroma_db"
+        persist_directory="../chroma_db"
+    )
+
+    return vector_store
+
+
+def load_vector_store():
+    """
+    Load the existing Chroma vector database.
+
+    Returns:
+        Chroma vector store
+    """
+
+    embeddings = get_embedding_model()
+
+    vector_store = Chroma(
+        persist_directory="../chroma_db",
+        embedding_function=embeddings
     )
 
     return vector_store

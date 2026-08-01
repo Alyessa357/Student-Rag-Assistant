@@ -1,40 +1,54 @@
 """
 main.py
 
-Temporary test script for creating the Chroma vector database.
+Test retrieving handbook information
+from the Chroma vector database.
 """
 
-# Import the function that loads the handbook
-from pdf_loader import load_handbook
-
-from text_splitter import split_documents
-from vector_store import create_vector_store
+from vector_store import load_vector_store
 
 
 def main():
-    """
-    Load the handbook, split it into chunks,
-    create embeddings, and store everything in ChromaDB.
-    """
 
-    # Load the handbook
-    documents = load_handbook()
+    vector_store = load_vector_store()
 
-    # Split into chunks
-    chunks = split_documents(documents)
-     
-    # Create vector database
-    vector_store = create_vector_store(chunks)
+    collection = vector_store._collection
 
     print("=" * 60)
-    print("VECTOR DATABASE CREATED SUCCESSFULLY")
+    print("DOCUMENTS INSIDE CHROMADB")
+    print("=" * 60)
+    print(collection.count())
+    print()
+
+    question = "How to get access to your calender?"
+    
+
+    results = vector_store.similarity_search(
+        question,
+        k=3
+    )
+
+    print("=" * 60)
+    print("QUESTION")
+    print("=" * 60)
+    print(question)
+
+    print("\n")
+
+    print("=" * 60)
+    print("TOP MATCHES")
     print("=" * 60)
 
-    print(f"Total handbook pages : {len(documents)}")
-    print(f"Total chunks stored  : {len(chunks)}")
+    for i, doc in enumerate(results, start=1):
+        print(f"\nMatch {i}")
+        print("-" * 40)
 
-    print("\nVector Store Type:")
-    print(type(vector_store))
+        print("Metadata:")
+        print(doc.metadata)
+
+        print("\nContent:")
+        print(doc.page_content[:600])
+
 
 if __name__ == "__main__":
     main()
