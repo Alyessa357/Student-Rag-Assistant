@@ -9,6 +9,7 @@ can be loaded correctly before building the RAG system.
 from pdf_loader import load_handbook
 
 from text_splitter import split_documents
+from embeddings import get_embedding_model
 
 
 def main():
@@ -22,6 +23,8 @@ def main():
     # Split into chunks
     chunks = split_documents(documents)
 
+    embedding_model = get_embedding_model()
+
     print("=" * 60)
     print("HANDBOOK SUCCESSFULLY LOADED")
     print("=" * 60)
@@ -34,6 +37,9 @@ def main():
 
     print("\nFirst chunk preview:\n")
     print(chunks[0].page_content)
+
+    print("\nEmbedding model loaded successfully!")
+    print(type(embedding_model))
 
     
 
