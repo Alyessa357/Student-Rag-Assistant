@@ -37,4 +37,8 @@ def load_handbook():
     # Load every page of the handbook
     documents = loader.load()
 
+
+    for doc in documents:
+        doc.page_content = " ".join(doc.page_content.split())
+
     return documents

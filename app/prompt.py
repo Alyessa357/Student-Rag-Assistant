@@ -9,24 +9,31 @@ from langchain_core.prompts import PromptTemplate
 
 
 def get_prompt():
+    """
+    Return the prompt template used by the RAG assistant.
+    """
 
     template = """
-You are a helpful AI assistant.
+    You are an AI assistant that answers questions ONLY using the provided handbook context.
 
-Answer the student's question ONLY using the handbook context below.
+    Rules:
+    1. Use ONLY the information in the context below.
+    2. Do NOT use your own knowledge.
+    3. Do NOT guess or make up information.
+    4. If the answer cannot be found in the context, reply EXACTLY with:
 
-If the answer cannot be found in the handbook, reply exactly:
+    I could not find that information in the handbook.
 
-"I could not find that information in the handbook."
+    Handbook Context:
+    -----------------
+    {context}
 
-Context:
-{context}
+    Student Question:
+    -----------------
+    {question}
 
-Question:
-{question}
-
-Answer:
-"""
+    Answer:
+    """
 
     return PromptTemplate(
         template=template,
