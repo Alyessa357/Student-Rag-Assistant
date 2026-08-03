@@ -46,11 +46,11 @@ def load_vector_store():
         Chroma vector store
     """
 
-    embeddings = get_embedding_model()
+    embedding_model = get_embedding_model()
 
     vector_store = Chroma(
         persist_directory="../chroma_db",
-        embedding_function=embeddings
+        embedding_function=embedding_model
     )
 
     return vector_store

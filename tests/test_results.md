@@ -18,10 +18,14 @@
 | 5 | What are the payment options? | Page 11 | (F e e s\n1 0 .\nT h e  S p r i n t s) | ✅ Pass |
 
 
+| 6 | What is the grade breakdown? | Page 14 | (This information is not found in the handbook.) | ✅ FAILED |
 
 
+| 7 | Will there be tutor support? | Page 6 | (I could not find that information in the handbook.) | ✅ FAILED |
 
 
+| 8 | How does the placement & career opportunities work? | Page 11 | (According to the handbook, the placement and career opportunities are as follows:\n\n* The course is designed to provide a structured approach to evaluating participants' theoretical knowledge and conceptual understanding of React and Node.\n* Participants will be working on a project using React and Node, demonstrating their proficiency in full-stack development.\n* Assignments (25%): Participants will gauge their ability to independently apply the concepts learned through the Boot Camp. The goal is to achieve significant milestones.\n* Coding Challenges (25%): Focuses on assessing participants' problem-solving experience with us enriching and successful.\n* Preparation, job placement assistance: To help you launch your career in tech.\n\nThe handbook also mentions that our commitment is not just to teach you how to code but also to provide a positive start to your learning experience.) | ✅ Pass |
 
+| 9 | What are the outcomes for this bootcamp? | Page 11 | (I could not find that information in the handbook.) | ✅ FAILED |
 
 | 10 | Who won the FIFA World Cup? | Page 11 | I could not find that information in the handbook. | ✅ Pass |

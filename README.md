@@ -75,9 +75,11 @@ Student-Rag-Assistant/
 
 │ └── test_results.md
 
-├── requirements.txt
+├── .gitignore
 
-└── README.md
+├── README.md
+
+└── requirements.txt
 
 ---
 
@@ -140,10 +142,10 @@ The assistant was tested using questions including:
 - When are the live classes?
 - What are the communication channels?
 - What are the payment options?
-- 
-- 
-- 
-- 
+- What is the grade breakdown?
+- Will there be tutor support?
+- How does the placement & career opportunities work?
+- What are the outcomes for this bootcamp?
 - Who won the FIFA World Cup?
 
 The final question intentionally verifies that the assistant does not hallucinate answers outside of the handbook.
@@ -178,9 +180,14 @@ ollama pull llama3.2
 
 Create the vector database
 
+Run the script responsible for loading the handbook, splitting it into chunks, generating embeddings, and creating the ChromaDB vector database.
+
+Example:
+
 ```bash
 python main.py
 ```
+(Note: This assumes `main.py` is being used as your database creation script during setup.)
 
 Run the API
 

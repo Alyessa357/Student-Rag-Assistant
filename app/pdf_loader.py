@@ -11,6 +11,7 @@ from langchain_community.document_loaders import PyPDFLoader
 # Import Path so we can work with file paths safely
 from pathlib import Path
 
+
 def load_handbook():
     """
     Load the student handbook PDF and return the extracted pages.
