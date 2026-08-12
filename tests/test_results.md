@@ -1,5 +1,7 @@
 # Student Handbook AI Assistant Test Results
 
+<!-- run uvicorn api:app --reload in terminal, then visit http://127.0.0.1:8000/docs to test questions -->
+
 | Test | Question | Source | Answer | Status |
 |------|----------|--------|--------|--------|
 
