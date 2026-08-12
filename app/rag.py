@@ -18,7 +18,7 @@ def retrieve_context(question):
 
     documents = vector_store.similarity_search_with_score(
         question,
-        k=10
+        k=15
     )
 
     context = "\n\n".join(
@@ -60,7 +60,7 @@ def ask_question(question):
 
     documents = vector_store.similarity_search_with_score(
         question,
-        k=10
+        k=15
     )
     
     context = "\n\n".join(

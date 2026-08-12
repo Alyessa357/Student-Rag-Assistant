@@ -17,10 +17,10 @@
 | 4 | What are the communication channels? | Page 5 | (G o o g l e  C l a s s r o o m) | ✅ PASSED |
 
 
-| 5 | What are the payment options? | Page 11 | (F e e s\n1 0 .\nT h e  S p r i n t s) | ✅ PASSED |
+| 5 | What are the payment options? | Page 11 | (T o t a l  F e e s :  R  3 8 , 9 5 0) | ✅ PASSED |
 
 
-| 6 | What is the grade breakdown? | Page 14 | (This information is not found in the handbook.) |  FAILED |
+| 6 | What is the grade breakdown? | Page 14 | (The final grade will be based on the following areas:\n\n* Final Project (React + Node) (35%)\n* Multiple Choice Questions (MCQs) (15%)\n* Coding Challenges (25%)\n* Talent.com roles are left unfilled every year in South Africa. The opportunity is extremely massive!) | ✅ PASSED |
 
 
 | 7 | Will there be tutor support? | Page 6 | (I could not find that information in the handbook.) |  FAILED |
