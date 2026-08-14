@@ -5,11 +5,15 @@ This module is responsible for creating a ChromaDB vector database
 from the handbook chunks.
 """
 
-# Import Chroma vector database
+from functools import lru_cache
+from pathlib import Path
+
 from langchain_chroma import Chroma
 
-# Import the embedding model
 from embeddings import get_embedding_model
+
+CHROMA_DIR = str(Path(__file__).resolve().parent.parent / "chroma_db")
+COLLECTION_NAME = "student_handbook"
 
 
 def create_vector_store(chunks):
@@ -25,19 +29,33 @@ def create_vector_store(chunks):
             The populated vector database.
     """
 
-    # Load the embedding model
     embedding_model = get_embedding_model()
 
-    # Create the vector database
+    existing = Chroma(
+        persist_directory=CHROMA_DIR,
+        embedding_function=embedding_model,
+        collection_name=COLLECTION_NAME,
+    )
+
+    try:
+        existing.delete_collection()
+    except Exception:
+        pass
+
+    load_vector_store.cache_clear()
+
     vector_store = Chroma.from_documents(
         documents=chunks,
         embedding=embedding_model,
-        persist_directory="../chroma_db"
+        persist_directory=CHROMA_DIR,
+        collection_name=COLLECTION_NAME,
+        collection_metadata={"hnsw:space": "cosine"},
     )
 
     return vector_store
 
 
+@lru_cache(maxsize=1)
 def load_vector_store():
     """
     Load the existing Chroma vector database.
@@ -49,8 +67,9 @@ def load_vector_store():
     embedding_model = get_embedding_model()
 
     vector_store = Chroma(
-        persist_directory="../chroma_db",
-        embedding_function=embedding_model
+        persist_directory=CHROMA_DIR,
+        embedding_function=embedding_model,
+        collection_name=COLLECTION_NAME,
     )
 
     return vector_store

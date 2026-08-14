@@ -24,8 +24,8 @@ def split_documents(documents):
 
     # Create the text splitter
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=500,
-        chunk_overlap=100
+        chunk_size=1200,
+        chunk_overlap=200
     )
 
     # Split the documents
