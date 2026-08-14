@@ -1,32 +1,7 @@
-# """
-# main.py
-
-# Simple test script for the Student RAG Assistant.
-# """
-
-# from rag import ask_question
-
-
-# def main():
-
-#     question = "How long is the bootcamp?"
-
-#     result = ask_question(question)
-
-#     print("\nRESULT")
-#     print(result)
-
-
-# if __name__ == "__main__":
-#     main()
-
-
-# ----------------------------------------------------------------------------------
-
 """
 main.py
 
-Debug script for testing RAG retrieval.
+Simple test script for the Student RAG Assistant | Debug script for testing RAG retrieval.
 """
 
 from rag import retrieve_documents, ask_question
