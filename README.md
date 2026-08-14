@@ -205,6 +205,38 @@ to access the Swagger API documentation.
 
 ---
 
+
+## API Usage
+
+### POST /ask
+
+The Student RAG Assistant exposes a POST endpoint
+that can be called by external applications such as n8n.
+
+Endpoint:
+POST http://localhost:8000/ask
+
+Request:
+{
+    "question": "What are the hardware requirements?"
+}
+
+Response:
+{
+    "answer": "...",
+    "source": "Page 4"
+}
+
+
+### n8n Integration
+
+The `/ask` endpoint is designed to receive HTTP POST
+requests from n8n's HTTP Request node.
+
+n8n can send a student's question to the endpoint
+and receive the generated answer and source page as JSON.
+
+
 ##  Author
 
 Developed by:
